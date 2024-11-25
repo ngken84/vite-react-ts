@@ -1,9 +1,10 @@
 import './App.css'
 import TodoList from './components/TodoList'
+import TodoItem from './models/TodoItem';
 
 const App: React.FC = () => {
 
-  const todos = [{id: 't1', text: "Finish the Course"}];
+  const todos = [new TodoItem("Test")];
 
 
   return (
