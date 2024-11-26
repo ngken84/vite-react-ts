@@ -35,6 +35,16 @@ const createNewTodoItem = (event : React.FormEvent) => {
   ...
 </form>
 ```
+- More practice with Binding. You can redefine that this is refering to and set the parameters of the function call
+```
+const removeTodoItem = (item: TodoItem) => {
+  setTodos((prevTodos) => {
+    return prevTodos.filter(todo => todo.id != item.id);
+  });
+}
+...
+<button onClick={removeTodoItem.bind(null, todo)}>DELETE</button>
+```
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

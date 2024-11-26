@@ -9,15 +9,13 @@ interface TodoListProps {
 }
 
 const TodoList : React.FC<TodoListProps> = ({items, removeTodoItem}) => {
-    
+
     return (
         <ul className="todo-list">
             {items.map(todo => (
                 <li key={todo.id}>
                     <span>{todo.text}</span>
-                    <button onClick={() => {
-                        removeTodoItem(todo);
-                    }}>DELETE</button>
+                    <button onClick={removeTodoItem.bind(null, todo)}>DELETE</button>
                 </li>))}
         </ul>
     );
