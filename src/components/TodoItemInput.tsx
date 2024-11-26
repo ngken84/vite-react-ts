@@ -1,6 +1,8 @@
 import React, { useRef }from 'react';
 import TodoItem from '../models/TodoItem';
 
+import './TodoItemInput.css';
+
 interface TodoItemInputProps {
     addTodoItem : (arg: TodoItem) => void
 }
@@ -22,7 +24,10 @@ const TodoItemInput : React.FC<TodoItemInputProps> = ({addTodoItem}) => {
 
     return (
         <form onSubmit={createNewTodoItem}>
-            <input type="text" ref={textInputRef}></input>
+            <div className="form-control">
+                <label htmlFor="todo-text">Todo Text</label>
+                <input id="todo-text" type="text" ref={textInputRef}></input>
+            </div>
             <button type="submit">Create New To-Do Item</button>
         </form>
     );
