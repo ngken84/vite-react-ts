@@ -1,5 +1,41 @@
 # React + TypeScript + Vite
 
+## Project Goals
+To learn how to integrate Typescript and React. First time using Vite vs Create React App:
+
+### Notes
+
+- Functional Components still exist but now are defined with a type and a template for describing its props:
+
+```
+interface TodoListProps {
+    items : TodoItem[],
+    removeTodoItem : (arg0 : TodoItem) => void
+}
+
+const TodoList : React.FC<TodoListProps> = ({items, removeTodoItem}) => {
+...
+}
+```
+- UseRef is a useful way to reference input fields. They must start as null but will populate when rendered. (Less expensive than using UseState?
+```
+const textInputRef = useRef<HTMLInputElement>(null);
+...
+return (
+  <input type="text" ref={textInputRef}></input>
+);
+```
+- Events for submit are of type React.FormEvent
+```
+const createNewTodoItem = (event : React.FormEvent) => {
+        event.preventDefault();
+}
+...
+<form onSubmit={createNewTodoItem}>
+  ...
+</form>
+```
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
